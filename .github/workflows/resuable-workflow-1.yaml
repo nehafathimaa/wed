@@ -1,0 +1,25 @@
+name: Reusable Workflow 1
+
+on:
+  workflow_call:
+
+jobs:
+  run1-job1:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+        
+      - name: Install Maven
+        run: |
+          sudo apt-get update
+          sudo apt-get install maven -y
+          
+      - name: Print Maven Installation Status
+        run: |
+          if command -v mvn &> /dev/null; then
+            echo "Maven installed: true"
+          else
+            echo "Maven installed: false"
+          fi
