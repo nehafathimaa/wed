@@ -25,4 +25,4 @@ jobs:
           
       - name: Use Maven Installation Status
         run: |
-          echo "Maven installation status: ${{ steps.check-maven.outputs.stdout }}"
+          echo "Maven installation status: ${{ steps.check-maven.outputs.stdout }}" >> $GITHUB_STEP_SUMMARY
