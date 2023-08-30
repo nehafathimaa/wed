@@ -1,0 +1,28 @@
+name: My Starter Workflow
+
+on: 
+  workflow_dispatch:
+
+jobs: 
+  call-workflow-in-local-repo:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+        
+      - name: Call Reusable Workflow 1
+        uses: ./.github/workflows/reusable-workflow-1.yaml
+        
+      - name: Check Maven Installation
+        id: check-maven
+        run: |
+          if command -v mvn &> /dev/null; then
+            echo "Maven installed: true"
+          else
+            echo "Maven installed: false"
+          fi
+          
+      - name: Use Maven Installation Status
+        run: |
+          echo "Maven installation status: ${{ steps.check-maven.outputs.stdout }}"
