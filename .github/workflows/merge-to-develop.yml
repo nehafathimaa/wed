@@ -15,7 +15,7 @@ jobs:
       - name: Merge main into develop
         uses: actions/github-script@v6
         with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
+          #github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
             const { repo, owner } = context.repo;
 
@@ -30,7 +30,7 @@ jobs:
       - name: Create audit PR (optional trace)
         uses: actions/github-script@v6
         with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
+          #github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
             const { repo, owner } = context.repo;
             const branchName = '${{ inputs.source_branch }}'.split('/').pop();
