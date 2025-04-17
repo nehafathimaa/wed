@@ -2,6 +2,11 @@ name: Merge Release to Main
 
 on:
   workflow_call:
+    inputs:
+      source_branch:
+        description: 'Release branch to merge into main'
+        required: true
+        type: string
 
 jobs:
   merge_release_to_main:
