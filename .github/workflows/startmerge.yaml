@@ -1,4 +1,4 @@
-name: Start Merge
+name: Start Merge Brnach
 
 on:
   workflow_dispatch:
